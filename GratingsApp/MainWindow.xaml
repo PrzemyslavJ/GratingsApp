@@ -1,0 +1,92 @@
+﻿<Window x:Name="GratingsApp" x:Class="GratingsApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GratingsApp"
+        mc:Ignorable="d" Height="733" Width="1160" Title="Program do oczkologii">
+
+    <Grid Margin="0,0,2,-20" Background="#FFFFFBE4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Wymiary kraty pomostowej (mm)" HorizontalAlignment="Left" Margin="29,41,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Dlugość" HorizontalAlignment="Left" Margin="29,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="Szerokość" HorizontalAlignment="Left" Margin="229,89,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Length" HorizontalAlignment="Left" Height="23" Margin="104,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="103" TextChanged="Length_TextChanged"/>
+        <TextBox x:Name="Width" HorizontalAlignment="Left" Height="23" Margin="328,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="Width_TextChanged"/>
+        <TextBox x:Name="MeshBearingBar" HorizontalAlignment="Left" Height="23" Margin="208,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="MeshBearingBar_TextChanged"/>
+        <Label Content="Oczko nośne&#xD;&#xA;(Odległość między osiami&#xD;&#xA;płaskowników nośnych)&#xD;&#xA; &#xD;&#xA;" HorizontalAlignment="Left" Margin="32,166,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="503,170,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="101"/>
+        <Label Content="Oczko poprzeczne&#xA;(Odległość między osiami&#xA;płaskowników poprzecznych)&#xA; &#xA;" HorizontalAlignment="Left" Margin="330,168,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Thickness" HorizontalAlignment="Left" Height="23" Margin="208,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="Thickness_TextChanged"/>
+        <Label Content="Grubość płaskownika nośnego&#xD;&#xA;" HorizontalAlignment="Left" Margin="32,132,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ThicknessB" HorizontalAlignment="Left" Height="23" Margin="504,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="ThicknessB_TextChanged"/>
+        <Label Content="Grubość obramowania" HorizontalAlignment="Left" Margin="331,132,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wybierz opcję rozmieszczenia płaskowników" HorizontalAlignment="Left" Margin="29,234,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Dla płaskowników poprzecznych" HorizontalAlignment="Left" Margin="32,318,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dla płaskowników nośnych" HorizontalAlignment="Left" Margin="32,284,0,0" VerticalAlignment="Top"/>
+        <Label Content="Wymiary oczek w kracie (mm)" HorizontalAlignment="Left" Margin="26,411,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <ComboBox x:Name="OptionBBox" HorizontalAlignment="Left" Margin="237,284,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="OptionBBox_SelectionChanged">
+            <ComboBoxItem IsSelected="True">Od środka - symetryczne oczka końcowe</ComboBoxItem>
+            <ComboBoxItem>Równe oczko na całym wymiarze</ComboBoxItem>
+            <ComboBoxItem>Pełne oczko od osi obramowania</ComboBoxItem>
+        </ComboBox>
+        <ComboBox x:Name="OptionCBox" HorizontalAlignment="Left" Margin="237,318,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="OptionCBox_SelectionChanged">
+            <ComboBoxItem IsSelected="True">Od środka - symetryczne oczka końcowe</ComboBoxItem>
+            <ComboBoxItem>Pełne oczko od osi obramowania</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Oczko początkowe - odległość od krawędzi &#xD;&#xA;obramowania do osi płaskownika" HorizontalAlignment="Left" Margin="29,465,0,0" VerticalAlignment="Top" Width="269" Height="45"/>
+        <Label Content="Oczko rzeczywiste - odległość między &#xD;&#xA;osiami płaskownika " HorizontalAlignment="Left" Margin="29,515,0,0" VerticalAlignment="Top" Width="269" Height="45"/>
+        <Label Content="Oczko końcowe - odległość od krawędzi &#xD;&#xA;obramowania do osi płaskownika" HorizontalAlignment="Left" Margin="29,565,0,0" VerticalAlignment="Top" Width="269" Height="45"/>
+        <Label Content="Dla płaskowników nośnych" HorizontalAlignment="Left" Margin="347,436,0,0" VerticalAlignment="Top" Width="163"/>
+        <Label Content="Dla płaskowników poprzecznych" HorizontalAlignment="Left" Margin="556,436,0,0" VerticalAlignment="Top" Width="269" Height="45"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="347,470,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="MeshCrossBar" HorizontalAlignment="Left" Height="23" Margin="504,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" TextChanged="MeshCrossBar_TextChanged"/>
+        <Label Content="Dokonaj korekty oczek końcowych" HorizontalAlignment="Left" Margin="788,412,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Wybierz opcję" HorizontalAlignment="Left" Margin="766,455,0,0" VerticalAlignment="Top" Width="103" Height="28"/>
+        <ComboBox x:Name="OptionCorection" HorizontalAlignment="Left" Margin="869,456,0,0" VerticalAlignment="Top" Width="252" SelectionChanged="OptionCorection_SelectionChanged">
+            <ComboBoxItem>Przesuń w lewo - płaskowniki nośne</ComboBoxItem>
+            <ComboBoxItem>Przesuń w prawo - płaskowniki nośne</ComboBoxItem>
+            <ComboBoxItem>Przesuń w lewo - płaskowniki poprzeczne</ComboBoxItem>
+            <ComboBoxItem>Przesuń w prawo - płaskowniki poprzeczne</ComboBoxItem>
+        </ComboBox>
+        <TextBox x:Name="CorrectionV" HorizontalAlignment="Left" Height="23" Margin="942,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" TextChanged="CorrectionV_TextChanged"/>
+        <Button x:Name="Correction" Content="Dokonaj korekty" HorizontalAlignment="Left" Margin="812,536,0,0" VerticalAlignment="Top" Width="239" FontWeight="Bold" Height="33" Click="Correction_Click"/>
+        <Button x:Name="Calculations" Content="Wyznacz wymiary oczek w kracie " HorizontalAlignment="Left" Margin="74,361,0,0" VerticalAlignment="Top" Width="326" Height="41" FontSize="14" FontWeight="Bold" Click="Calculations_Click"/>
+        <Label x:Name="Statement" Content="" HorizontalAlignment="Left" Margin="331,27,0,0" VerticalAlignment="Top" Width="700" FontSize="16" FontWeight="Bold" Foreground="Red"/>
+        <Label Content="Zadana wartość (mm)" HorizontalAlignment="Left" Margin="812,498,0,0" VerticalAlignment="Top" Width="130" Height="28"/>
+        <Label Content="Ilość płaskowników" HorizontalAlignment="Left" Margin="32,612,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="Nośnych" HorizontalAlignment="Left" Margin="31,648,0,0" VerticalAlignment="Top" Width="269" Height="45"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="349,653,0,0" VerticalAlignment="Top"/>
+        <Label Content="Poprzecznych" HorizontalAlignment="Left" Margin="322,648,0,0" VerticalAlignment="Top" Width="246" Height="45"/>
+        <Label Content="L" HorizontalAlignment="Left" Margin="81,86,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="W" HorizontalAlignment="Left" Margin="297,85,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="t" HorizontalAlignment="Left" Margin="478,128,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="a1" HorizontalAlignment="Left" Margin="329,465,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="a2" HorizontalAlignment="Left" Margin="331,566,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="a" HorizontalAlignment="Left" Margin="331,515,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="540,474,0,0" VerticalAlignment="Top"/>
+        <Label Content="b1" HorizontalAlignment="Left" Margin="522,469,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="b2" HorizontalAlignment="Left" Margin="522,565,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <Label Content="b" HorizontalAlignment="Left" Margin="524,515,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue" RenderTransformOrigin="-5.278,1.065"/>
+        <TextBox x:Name="a1t" HorizontalAlignment="Left" Height="30" Margin="374,466,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="at" HorizontalAlignment="Left" Height="30" Margin="374,516,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="a2t" HorizontalAlignment="Left" Height="30" Margin="374,567,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="b1t" HorizontalAlignment="Left" Height="30" Margin="577,464,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="bt" HorizontalAlignment="Left" Height="30" Margin="577,514,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="b2t" HorizontalAlignment="Left" Height="30" Margin="577,565,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="a2t_Copy" HorizontalAlignment="Left" Height="30" Margin="170,649,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" />
+        <TextBox x:Name="QuantityBearingBar" HorizontalAlignment="Left" Height="30" Margin="170,649,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <TextBox x:Name="QuantityCrossBar" HorizontalAlignment="Left" Height="30" Margin="431,648,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontWeight="Bold" FontSize="16" TextAlignment="Center" IsReadOnly="True" />
+        <Image x:Name="Grating" HorizontalAlignment="Left" Height="328" Margin="615,63,0,0" VerticalAlignment="Top" Width="506" Stretch="Fill" StretchDirection="DownOnly" Source="krata.jpg"/>
+        <Menu HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="1160" FontSize="15" Margin="0,0,-10,0">
+            <MenuItem Header="Opcje">
+                <MenuItem Header="Informacje" Click="MenuItem_Click_1"></MenuItem>
+                <MenuItem Header="Zamknij aplikację" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Label Content="Wartości oznaczone na niebiesko&#xD;&#xA;zgodne z oznaczeniami na rysunku." HorizontalAlignment="Left" Margin="799,612,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="Blue"/>
+    </Grid>
+</Window>
